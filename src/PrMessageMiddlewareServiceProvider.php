@@ -1,9 +1,9 @@
 <?php
 
-namespace YourVendor\PrMessageMiddleware;
+namespace Naotty\LaravelPrMessage;
 
 use Illuminate\Support\ServiceProvider;
-use YourVendor\PrMessageMiddleware\Middleware\AddPrMessageHeader;
+use Naotty\LaravelPrMessage\Middleware\AddPrMessageHeader;
 
 class PrMessageMiddlewareServiceProvider extends ServiceProvider
 {
