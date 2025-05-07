@@ -1,6 +1,6 @@
 <?php
 
-namespace YourVendor\PrMessageMiddleware\Middleware;
+namespace Naotty\LaravelPrMessage\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

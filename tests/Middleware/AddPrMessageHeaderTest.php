@@ -1,11 +1,10 @@
 <?php
 
-namespace YourVendor\PrMessageMiddleware\Tests\Middleware;
+namespace Naotty\LaravelPrMessage\Tests\Middleware;
 
 use Orchestra\Testbench\TestCase;
-use YourVendor\PrMessageMiddleware\Middleware\AddPrMessageHeader;
-use YourVendor\PrMessageMiddleware\PrMessageMiddlewareServiceProvider;
-
+use Naotty\LaravelPrMessage\Middleware\AddPrMessageHeader;
+use Naotty\LaravelPrMessage\PrMessageMiddlewareServiceProvider;
 class AddPrMessageHeaderTest extends TestCase
 {
     protected function getPackageProviders($app)
