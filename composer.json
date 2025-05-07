@@ -1,0 +1,37 @@
+{
+    "name": "naotty/laravel-pr-message",
+    "description": "Laravel middleware to add PR message to API response headers",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Naotty\\LaravelPrMessage\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Naotty\\LaravelPrMessage\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "naotty"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "illuminate/http": "^8.0|^9.0|^10.0",
+        "illuminate/support": "^8.0|^9.0|^10.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0|^7.0|^8.0",
+        "phpunit/phpunit": "^9.0|^10.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Naotty\\LaravelPrMessage\\PrMessageMiddlewareServiceProvider"
+            ]
+        }
+    }
+} 
