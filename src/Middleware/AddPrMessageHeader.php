@@ -32,6 +32,12 @@ class AddPrMessageHeader
         
         if (!empty($this->messages)) {
             $randomMessage = $this->messages[array_rand($this->messages)];
+
+            // mbstringが利用可能な場合のみ変換を試みる
+            if (function_exists('mb_convert_encoding')) {
+                $randomMessage = mb_convert_encoding($randomMessage, 'UTF-8', 'auto');
+            }
+
             $response->headers->set('pr-message', $randomMessage);
         }
         
