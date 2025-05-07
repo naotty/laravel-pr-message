@@ -8,16 +8,19 @@ use Illuminate\Http\Request;
 class AddPrMessageHeader
 {
     /**
-     * PRメッセージのリスト
+     * List of PR messages
      *
      * @var array
      */
-    protected $messages = [
-        'Would you like to work with us? We are hiring engineers!',
-        'Let\'s create better services together',
-        'Would you like to grow with us?',
-        'Looking for a challenging environment? Join us!',
-    ];
+    protected $messages = [];
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->messages = config('pr-message.messages', []);
+    }
 
     /**
      * Handle an incoming request.
@@ -39,7 +42,7 @@ class AddPrMessageHeader
     }
 
     /**
-     * メッセージを設定する
+     * Set the messages
      *
      * @param array $messages
      * @return void

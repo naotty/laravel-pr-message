@@ -5,11 +5,20 @@ namespace Naotty\LaravelPrMessage\Tests\Middleware;
 use Orchestra\Testbench\TestCase;
 use Naotty\LaravelPrMessage\Middleware\AddPrMessageHeader;
 use Naotty\LaravelPrMessage\PrMessageMiddlewareServiceProvider;
+
 class AddPrMessageHeaderTest extends TestCase
 {
     protected function getPackageProviders($app)
     {
         return [PrMessageMiddlewareServiceProvider::class];
+    }
+
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('pr-message.messages', [
+            'Test message 1',
+            'Test message 2',
+        ]);
     }
 
     /** @test */
@@ -23,13 +32,17 @@ class AddPrMessageHeaderTest extends TestCase
         );
 
         $this->assertTrue($response->headers->has('pr-message'));
+        $this->assertTrue(in_array(
+            $response->headers->get('pr-message'),
+            config('pr-message.messages')
+        ));
     }
 
     /** @test */
     public function it_can_set_custom_messages()
     {
         $middleware = new AddPrMessageHeader();
-        $customMessages = ['カスタムメッセージ1', 'カスタムメッセージ2'];
+        $customMessages = ['Custom message 1', 'Custom message 2'];
         
         $middleware->setMessages($customMessages);
         
