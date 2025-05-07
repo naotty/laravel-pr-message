@@ -13,10 +13,10 @@ class AddPrMessageHeader
      * @var array
      */
     protected $messages = [
-        '一緒に働きませんか？エンジニア募集中です！',
-        'より良いサービスを一緒に作りましょう',
-        '私たちと一緒に成長しませんか？',
-        'チャレンジングな環境で働きたい方、募集中！',
+        'Would you like to work with us? We are hiring engineers!',
+        'Let\'s create better services together',
+        'Would you like to grow with us?',
+        'Looking for a challenging environment? Join us!',
     ];
 
     /**
@@ -32,12 +32,6 @@ class AddPrMessageHeader
         
         if (!empty($this->messages)) {
             $randomMessage = $this->messages[array_rand($this->messages)];
-
-            // mbstringが利用可能な場合のみ変換を試みる
-            if (function_exists('mb_convert_encoding')) {
-                $randomMessage = mb_convert_encoding($randomMessage, 'UTF-8', 'auto');
-            }
-
             $response->headers->set('pr-message', $randomMessage);
         }
         

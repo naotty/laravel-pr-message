@@ -20,7 +20,6 @@
     ],
     "require": {
         "php": "^8.2",
-        "ext-mbstring": "*",
         "illuminate/http": "^8.0|^9.0|^10.0",
         "illuminate/support": "^8.0|^9.0|^10.0"
     },
