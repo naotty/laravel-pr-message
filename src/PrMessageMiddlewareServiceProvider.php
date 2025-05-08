@@ -12,14 +12,14 @@ class PrMessageMiddlewareServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    private $configPath = __DIR__ . '/../config/pr-message.php';
+    private string $configPath = __DIR__ . '/../config/pr-message.php';
 
     /**
      * Bootstrap any application services.
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->publishes([
             $this->configPath => config_path('pr-message.php'),
@@ -33,7 +33,7 @@ class PrMessageMiddlewareServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(
             $this->configPath, 'pr-message'
