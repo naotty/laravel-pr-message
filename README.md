@@ -1,6 +1,7 @@
 # Laravel PR Message
 
-Laravel middleware to add PR message to API response headers.
+Laravel middleware to add PR message to API response headers.  
+You can enter the message you want to convey to the user!
 
 ## Installation
 
@@ -30,15 +31,22 @@ Edit the `config/pr-message.php` file to customize the PR messages:
 return [
     'messages' => [
         'Would you like to work with us? We are hiring engineers!',
+        'This service makes you happy!',
         'Let\'s create better services together!',
-        'Would you like to grow with us?',
-        'Looking for a challenging environment? Join us!',
+        'This service makes your life better!',
+        'You, who are reading this message, would you like to work with us?',
         // Add your own messages
     ],
 ];
 ```
 
 ## Usage
+
+### Response Headers
+
+When using this middleware, the following HTTP header will be added to your API responses:
+
+- `pr-message`: A randomly selected message from your configured message list
 
 ### Register as a global middleware
 
