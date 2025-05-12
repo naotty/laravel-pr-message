@@ -33,12 +33,12 @@ class AddPrMessageHeader
     public function handle(Request $request, Closure $next): Response
     {
         $response = $next($request);
-        
+
         if (!empty($this->messages)) {
             $randomMessage = $this->messages[array_rand($this->messages)];
             $response->headers->set('pr-message', $randomMessage);
         }
-        
+
         return $response;
     }
 
@@ -52,4 +52,4 @@ class AddPrMessageHeader
     {
         $this->messages = $messages;
     }
-} 
+}

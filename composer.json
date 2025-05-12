@@ -25,7 +25,8 @@
     },
     "require-dev": {
         "orchestra/testbench": "^6.0|^7.0|^8.0",
-        "phpunit/phpunit": "^9.0|^10.0"
+        "phpunit/phpunit": "^9.0|^10.0",
+        "friendsofphp/php-cs-fixer": "^3.75"
     },
     "extra": {
         "laravel": {
@@ -34,4 +35,4 @@
             ]
         }
     }
-} 
+}
