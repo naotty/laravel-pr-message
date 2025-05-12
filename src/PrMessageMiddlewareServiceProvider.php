@@ -36,10 +36,10 @@ class PrMessageMiddlewareServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            $this->configPath, 'pr-message'
+            $this->configPath,
+            'pr-message'
         );
-        
+
         $this->app->singleton(AddPrMessageHeader::class);
     }
-
-} 
+}

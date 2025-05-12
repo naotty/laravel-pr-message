@@ -2,9 +2,9 @@
 
 namespace Naotty\LaravelPrMessage\Tests\Middleware;
 
-use Orchestra\Testbench\TestCase;
 use Naotty\LaravelPrMessage\Middleware\AddPrMessageHeader;
 use Naotty\LaravelPrMessage\PrMessageMiddlewareServiceProvider;
+use Orchestra\Testbench\TestCase;
 
 class AddPrMessageHeaderTest extends TestCase
 {
@@ -25,7 +25,7 @@ class AddPrMessageHeaderTest extends TestCase
     public function it_adds_pr_message_header_to_response()
     {
         $middleware = new AddPrMessageHeader();
-        
+
         $response = $middleware->handle(
             request(),
             fn () => response()->json(['data' => 'test'])
@@ -43,9 +43,9 @@ class AddPrMessageHeaderTest extends TestCase
     {
         $middleware = new AddPrMessageHeader();
         $customMessages = ['Custom message 1', 'Custom message 2'];
-        
+
         $middleware->setMessages($customMessages);
-        
+
         $response = $middleware->handle(
             request(),
             fn () => response()->json(['data' => 'test'])
@@ -62,8 +62,8 @@ class AddPrMessageHeaderTest extends TestCase
     {
         $router = $this->app['router'];
         $middlewareMap = $router->getMiddleware();
-        
+
         $this->assertArrayHasKey('pr-message', $middlewareMap);
         $this->assertEquals(AddPrMessageHeader::class, $middlewareMap['pr-message']);
     }
-} 
+}
